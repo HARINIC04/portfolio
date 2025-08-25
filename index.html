@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harini | Developer Portfolio</title>
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      color: white;
+      background: #0f2027;
+      scroll-behavior: smooth;
+    } 
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 32, 39, 0.85);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #00f7ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    nav a {
+      margin-left: 30px;
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00f7ff;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00f7ff;
+      }
+
+      to {
+        text-shadow: 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+      }
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .landing {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .landing h1 {
+      font-size: 50px;
+    }
+
+    .landing .role {
+      font-size: 26px;
+      margin: 20px 0;
+      color: #00f7ff;
+    }
+
+    .landing-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .landing-text {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .landing-image img {
+      width: 200px;
+      height: 270px;
+      border-radius: 50%;
+      border: 3px solid #00f7ff;
+      box-shadow: 0 0 30px #00f7ff;
+      transition: transform 0.4s;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .landing-image img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .btn {
+      background: transparent;
+      border: 2px solid #00f7ff;
+      color: #00f7ff;
+      padding: 10px 25px;
+      border-radius: 10px;
+      transition: 0.3s;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #00f7ff;
+      color: black;
+      box-shadow: 0 0 20px #00f7ff;
+    }
+
+    .skills .bar {
+      background: #203a43;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .skills .bar .fill {
+      height: 20px;
+      background: #00f7ff;
+      border-radius: 10px;
+      animation: fillBar 5s forwards;
+      color: black
+    }
+@keyframes fillBar {
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: var(--level);
+      }
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #1b2d3a;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 15px #00f7ff;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      background: #203a43;
+      color: white;
+    }
+
+    .contact button {
+      padding: 10px 25px;
+      background: #00f7ff;
+      border: none;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f2027;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      section {
+        padding: 100px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Landing with VANTA BG -->
+  <section class="landing" id="home">
+    <div id="bg"></div>
+    <div class="landing-content">
+      <div class="landing-text">
+        <h1 data-aos="fade-up">Hello, I'm <span class="name">Harini</span></h1>
+        <h2 class="role" data-aos="fade-left">A Passionate Developer</h2>
+        <a href="#projects" class="btn" data-aos="zoom-in">View My Work</a>
+      </div>
+      <div class="landing-image" data-aos="fade-up">
+        <img src="./hari.jpg" alt="Harini" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2><br>
+    <p>Hi, I'm Harini, a passionate and multi-skilled tech enthusiast driven by curiosity, creativity, and a strong
+      desire to make meaningful impact through technology. I’m currently paving my path toward becoming a software
+      engineer, with deep interests in web development, data science, and AI/ML.</p><br><p>I have hands-on experience
+    through internships in full-stack development and data science, where I transformed ideas into real-world solutions
+    and honed my skills in problem-solving, clean code architecture, and teamwork. I enjoy working across the stack —
+    from crafting dynamic user interfaces to building powerful backend logic and integrating databases.</p><br>
+    <p>Beyond coursework, I’m an active learner and builder. I regularly participate in hackathons, technical forums,
+      and innovation challenges that push me to think critically and execute ideas under pressure. These experiences
+      have helped me grow both technically and personally, boosting my adaptability, leadership, and communication
+      skills.</p><br>
+    <p>I'm well-versed in technologies like React, Node.js, Firebase, Python, and Google Colab, and I love designing
+      responsive, accessible UIs using HTML, CSS, and JavaScript. I also take time to strengthen my computer science
+      fundamentals, including Data Structures & Algorithms (DSA), DBMS, Operating Systems, and Computer Networks.</p>
+    <br>
+    <p>I believe that great technology is built at the intersection of logic and empathy. With every line of code, I aim
+      to solve real-world problems, enhance user experiences, and contribute to building a more intelligent and
+      inclusive digital future. I'm a lifelong learner, constantly curious, and always ready to take on new challenges.
+
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills" data-aos="fade-up">
+    <h2>Skills</h2><br>
+    <ul>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 90%; width: 50%;">HTML</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 85%; width: 5%;">CSS</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 80%; width: 50%;">JavaScript</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 75%; width: 50%;">React</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 75%; width: 50%;">Python</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 75%; width: 55%;">c++</div>
+        </div>
+      </li>
+      <li>
+        <div class="bar">
+          <div class="fill" style="--level: 75%; width: 55%;">SQL</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2><br>
+    <div class="projects">
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>CrowdSense</h3>
+        <p>A real-time crowd monitoring and smart time planner app built using React, Firebase, and Node.js.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Self-Defense App</h3>
+        <p>A safety mobile app with features like voice command alerts, shake detection, GPS tracking, and a
+          self-defense chatbot.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Plant Buddy Tracker</h3>
+        <p>A plant care web app to track watering and sunlight schedules. Includes custom to-do lists for each plant and
+          reminders for plant care.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>CyberSecure Learner</h3>
+        <p>A gamified web platform to teach cybersecurity concepts to students and beginners through interactive
+          challenges and levels.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Smart Oil Spill Detector</h3>
+        <p>A deep learning-based system integrating satellite and AIS data to detect vessel anomalies and potential oil
+          spills.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Fake-to-Factual Generator</h3>
+        <p>A text-to-text AI model built in Google Colab to convert fake or misleading information into factual content.
+        </p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Audio Spoof Detection</h3>
+        <p>A multilingual, language-independent anti-spoofing system using deep learning on ASVspoof and MLAAD datasets.
+        </p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>E-Commerce Website</h3>
+        <p>A complete shopping site with Firebase login, cart, wishlist, dark mode, product filters, and advanced UI
+          using HTML, CSS, JS, and Node.js.</p>
+      </div>
+
+      <div class="project-card" data-aos="flip-left">
+        <h3>Quiz Website</h3>
+        <p>An interactive quiz platform featuring dark mode, timers, leaderboard, Firebase login/signup, and category
+          selection.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact" data-aos="fade-up">
+    <h2>Contact Me</h2><br>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Harini. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Library -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1200 });</script>
+
+  <!-- Vanta Background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({
+      el: "#bg",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      color: 0x00f7ff,
+      backgroundColor: 0x0f2027,
+      points: 12.0,
+      maxDistance: 20.0,
+      spacing: 15.0
+    })
+  </script>
+
+</body>
+
+</html>
