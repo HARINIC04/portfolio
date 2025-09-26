@@ -44,7 +44,7 @@ To set up this project locally, follow these simple steps:
 
 ---
 
-## 📞 Contact
+##  Contact
 
 Harini C
 -   **GitHub:** [@harinic04](https://github.com/harinic04)
