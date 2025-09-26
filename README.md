@@ -1,7 +1,7 @@
 # portfolio
 # Personal Developer Portfolio
 
-![Portfolio Screenshot](https://i.imgur.com/your-screenshot-url.png) A sleek, modern, and fully responsive personal portfolio website built with HTML, CSS, and JavaScript. This project showcases my skills, projects, and professional background using dynamic animations and an interactive design.
+A sleek, modern, and fully responsive personal portfolio website built with HTML, CSS, and JavaScript. This project showcases my skills, projects, and professional background using dynamic animations and an interactive design.
 
 **Live Demo:** [https://harinic04.github.io/portfolio/](https://harinic04.github.io/portfolio/)
 
